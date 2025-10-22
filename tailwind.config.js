@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 module.exports = {
   darkMode: "class",
@@ -12,28 +12,78 @@ module.exports = {
   ],
   theme: {
     extend: {
-      transitionProperty: {
-        width: "width margin",
-        height: "height",
-        bg: "background-color",
-        display: "display opacity",
-        visibility: "visibility",
-        padding: "padding-top padding-right padding-bottom padding-left",
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
       },
       colors: {
-        grey: {
-          0: "#FFFFFF",
-          5: "#F9FAFB",
-          10: "#F3F4F6",
-          20: "#E5E7EB",
-          30: "#D1D5DB",
-          40: "#9CA3AF",
-          50: "#6B7280",
-          60: "#4B5563",
-          70: "#374151",
-          80: "#1F2937",
-          90: "#111827",
+        // Luxury Black/White/Grey Palette
+        black: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+          950: '#0a0a0a',
         },
+        white: {
+          DEFAULT: '#ffffff',
+          50: '#fefefe',
+          100: '#fdfdfd',
+          200: '#fafafa',
+          300: '#f7f7f7',
+          400: '#f5f5f5',
+        },
+        grey: {
+          0: '#FFFFFF',
+          5: '#F9FAFB',
+          10: '#F3F4F6',
+          20: '#E5E7EB',
+          30: '#D1D5DB',
+          40: '#9CA3AF',
+          50: '#6B7280',
+          60: '#4B5563',
+          70: '#374151',
+          80: '#1F2937',
+          90: '#111827',
+        },
+        // Semantic overrides
+        primary: {
+          DEFAULT: '#0a0a0a',
+          foreground: '#ffffff',
+        },
+        secondary: {
+          DEFAULT: '#f5f5f5',
+          foreground: '#171717',
+        },
+        accent: {
+          DEFAULT: '#e5e5e5',
+          foreground: '#171717',
+        },
+        muted: {
+          DEFAULT: '#fafafa',
+          foreground: '#737373',
+        },
+        background: '#ffffff',
+        foreground: '#0a0a0a',
+        border: '#e5e5e5',
+        input: '#d4d4d4',
+        ring: '#a3a3a3',
+        card: '#ffffff',
+        popover: '#ffffff',
+        destructive: {
+          DEFAULT: '#991b1b',
+          foreground: '#ffffff',
+        },
+      },
+      letterSpacing: {
+        luxury: '0.1em',
+        'luxury-wide': '0.2em',
       },
       borderRadius: {
         none: "0px",
@@ -57,18 +107,6 @@ module.exports = {
       },
       fontSize: {
         "3xl": "2rem",
-      },
-      fontFamily: {
-        sans: [
-          "Inter",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Ubuntu",
-          "sans-serif",
-        ],
       },
       keyframes: {
         ring: {
@@ -140,6 +178,15 @@ module.exports = {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(0)" },
         },
+        // Lovable luxury animations
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "slide-in-right": {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
       animation: {
         ring: "ring 2.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
@@ -155,8 +202,11 @@ module.exports = {
         enter: "enter 200ms ease-out",
         "slide-in": "slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)",
         leave: "leave 150ms ease-in forwards",
+        // Lovable
+        "fade-in": "fade-in 0.3s ease-out",
+        "slide-in-right": "slide-in-right 0.3s ease-out",
       },
     },
   },
   plugins: [require("tailwindcss-radix")()],
-}
+};
